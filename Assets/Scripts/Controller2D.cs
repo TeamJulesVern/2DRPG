@@ -41,6 +41,13 @@ public class Controller2D : MonoBehaviour
 		      
         horizontal = Input.GetAxis("Horizontal");
 		vertical = Input.GetAxis ("Vertical");
+
+		// To stop moving
+		if (horizontal == 0) {
+			moveDirection.x=horizontal;
+			moveDirection.y=vertical;
+		}
+
         //move right
 		if (horizontal > 0.000001f)
         {
