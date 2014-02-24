@@ -7,7 +7,7 @@ public class Controller2D : MonoBehaviour
     CharacterController charController;
 
   
-    public float walkSpeed = 5;
+    public float walkSpeed = 1;
 
     //Control our Player movment 
     Vector3 moveDirection = Vector3.zero;
@@ -42,7 +42,7 @@ public class Controller2D : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
 		vertical = Input.GetAxis ("Vertical");
         //move right
-		if (horizontal > 0f)
+		if (horizontal > 0.000001f)
         {
 			animator.SetTrigger("MoveRight");
             pLookingToRight = true;
@@ -50,7 +50,7 @@ public class Controller2D : MonoBehaviour
         }
 
         //move left
-		if (horizontal < 0f)
+		if (horizontal < -0.000001f)
         {
 			animator.SetTrigger("MoveLeft");
             pLookingToRight = false;
@@ -58,7 +58,7 @@ public class Controller2D : MonoBehaviour
         }
 
 		//move up
-		if (vertical > 0f) 
+		if (vertical > 0.000001f) 
 		{
 			animator.SetTrigger("MoveUp");
 			pLookingToUp = true;
@@ -67,7 +67,7 @@ public class Controller2D : MonoBehaviour
 
 
 		//move down
-		if (vertical < 0f) 
+		if (vertical < -0.000001f) 
 		{
 			animator.SetTrigger("MoveDown");
 			pLookingToUp = false;
