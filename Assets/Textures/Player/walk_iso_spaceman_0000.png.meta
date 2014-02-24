@@ -1,0 +1,832 @@
+fileFormatVersion: 2
+guid: 6f7958ec25f1ce94d9c19722a31f47bb
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 0
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: walk_iso_spaceman_0000_0
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 1443
+        width: 100
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_1
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 1438
+        width: 100
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_2
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 1429
+        width: 101
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_3
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 1424
+        width: 100
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_4
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 1432
+        width: 99
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_5
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 1440
+        width: 100
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_6
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 1441
+        width: 100
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_7
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 1432
+        width: 101
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_8
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 1422
+        width: 100
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_9
+      rect:
+        serializedVersion: 2
+        x: 1377
+        y: 1429
+        width: 99
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_10
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 1256
+        width: 102
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_11
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 1239
+        width: 103
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_12
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 1231
+        width: 103
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_13
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 1226
+        width: 103
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_14
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 1231
+        width: 103
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_15
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 1237
+        width: 102
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_16
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 1247
+        width: 105
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_17
+      rect:
+        serializedVersion: 2
+        x: 1065
+        y: 1251
+        width: 130
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_18
+      rect:
+        serializedVersion: 2
+        x: 1212
+        y: 1239
+        width: 123
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_19
+      rect:
+        serializedVersion: 2
+        x: 1373
+        y: 1245
+        width: 111
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_20
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 1057
+        width: 79
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_21
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 1057
+        width: 104
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_22
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1049
+        width: 139
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_23
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 1046
+        width: 119
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_24
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 1046
+        width: 92
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_25
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 1046
+        width: 79
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_26
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 1046
+        width: 90
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_27
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 1047
+        width: 139
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_28
+      rect:
+        serializedVersion: 2
+        x: 1210
+        y: 1060
+        width: 130
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_29
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 1062
+        width: 101
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_30
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 862
+        width: 103
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_31
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 861
+        width: 106
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_32
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 851
+        width: 130
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_33
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 851
+        width: 119
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_34
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 853
+        width: 107
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_35
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 846
+        width: 103
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_36
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 843
+        width: 103
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_37
+      rect:
+        serializedVersion: 2
+        x: 1081
+        y: 838
+        width: 103
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_38
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 834
+        width: 103
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_39
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 845
+        width: 104
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_40
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 650
+        width: 101
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_41
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 645
+        width: 100
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_42
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 639
+        width: 100
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_43
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 634
+        width: 98
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_44
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 653
+        width: 100
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_45
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 652
+        width: 101
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_46
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 645
+        width: 100
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_47
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 644
+        width: 98
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_48
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 631
+        width: 99
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_49
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 647
+        width: 100
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_50
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 443
+        width: 104
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_51
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 443
+        width: 103
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_52
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 433
+        width: 103
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_53
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 435
+        width: 101
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_54
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 449
+        width: 103
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_55
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 457
+        width: 104
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_56
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 459
+        width: 105
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_57
+      rect:
+        serializedVersion: 2
+        x: 1057
+        y: 454
+        width: 128
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_58
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 448
+        width: 125
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_59
+      rect:
+        serializedVersion: 2
+        x: 1367
+        y: 452
+        width: 111
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_60
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 245
+        width: 79
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_61
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 245
+        width: 104
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_62
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 245
+        width: 139
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_63
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 256
+        width: 118
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_64
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 261
+        width: 92
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_65
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 256
+        width: 79
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_66
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 253
+        width: 90
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_67
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 253
+        width: 139
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_68
+      rect:
+        serializedVersion: 2
+        x: 1210
+        y: 245
+        width: 130
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_69
+      rect:
+        serializedVersion: 2
+        x: 1370
+        y: 244
+        width: 102
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_70
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 38
+        width: 103
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_71
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 49
+        width: 106
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_72
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 47
+        width: 129
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_73
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 41
+        width: 120
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_74
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 46
+        width: 108
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_75
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 52
+        width: 103
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_76
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 38
+        width: 103
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_77
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 33
+        width: 103
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_78
+      rect:
+        serializedVersion: 2
+        x: 1217
+        y: 24
+        width: 104
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_79
+      rect:
+        serializedVersion: 2
+        x: 1367
+        y: 27
+        width: 103
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 90
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_81
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 3
+        width: 54
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_82
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 3
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_83
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 3
+        width: 52
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_84
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 3
+        width: 49
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_85
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 3
+        width: 52
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: walk_iso_spaceman_0000_86
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 3
+        width: 44
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+  spritePackingTag: 
+  userData: 
