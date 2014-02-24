@@ -13,18 +13,16 @@ public class Controller2D : MonoBehaviour
     Vector3 moveDirection = Vector3.zero;
     float horizontal = 0;
 	float vertical = 0;
-   
-	//Player attack vars
-    public Rigidbody bulletPrefab;
 
-    float attackRate = 0.5f;
-    float coolDown;
-
-    //turn player vars
-    bool pLookingToRight = true;
-	bool pLookingToUp = true;
+    
 
 	Animator animator;
+
+	//The direction he is movin
+	static public bool moveRight;
+	static public bool moveLeft;
+	static public bool moveUp;
+	static public bool moveDown;
 
 
 	// Use this for initialization
@@ -42,33 +40,39 @@ public class Controller2D : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
 		vertical = Input.GetAxis ("Vertical");
 
-		// To stop moving
-		if (horizontal == 0) {
-			moveDirection.x=horizontal;
-			moveDirection.y=vertical;
-		}
+	
 
         //move right
 		if (horizontal > 0.000001f)
         {
-			animator.SetTrigger("MoveRight");
-            pLookingToRight = true;
+			moveRight=true;
+			moveLeft=false;
+			moveUp=false;
+			moveDown=false;
+			animator.SetTrigger("MoveRight");        
             moveDirection.x = horizontal * walkSpeed;
         }
 
         //move left
 		if (horizontal < -0.000001f)
         {
+			moveRight=false;
+			moveLeft=true;
+			moveUp=false;
+			moveDown=false;
 			animator.SetTrigger("MoveLeft");
-            pLookingToRight = false;
             moveDirection.x = horizontal * walkSpeed;
         }
 
 		//move up
 		if (vertical > 0.000001f) 
 		{
+			moveRight=false;
+			moveLeft=false;
+			moveUp=true;
+			moveDown=false;
 			animator.SetTrigger("MoveUp");
-			pLookingToUp = true;
+
 			moveDirection.y = vertical * walkSpeed;
 		}
 
@@ -76,40 +80,23 @@ public class Controller2D : MonoBehaviour
 		//move down
 		if (vertical < -0.000001f) 
 		{
+			moveRight=false;
+			moveLeft=false;
+			moveUp=false;
+			moveDown=true;
 			animator.SetTrigger("MoveDown");
-			pLookingToUp = false;
 			moveDirection.y = vertical * walkSpeed;	
 		}
 				    
 		if (vertical == 0f && horizontal == 0f) 
 		{
+			moveDirection.x=horizontal;
+			moveDirection.y=vertical;
 			animator.SetTrigger("Static");
-		}
-        //Control's player attack
-        if (Time.time >= coolDown)
-        {
-            if (Input.GetKeyDown(KeyCode.Mouse1))
-            {
-                BulletAttack();
-            }
-        }
+		}      
+        
 
 	}
 
-    void BulletAttack()
-    {
-        if (pLookingToRight)
-        {
-            Rigidbody bPrefab = Instantiate(bulletPrefab, transform.position, Quaternion.identity) as Rigidbody;
-            bPrefab.rigidbody.AddForce(Vector3.right * 500);
-            coolDown = Time.time + attackRate;
-        }
-        else
-        {
-            Rigidbody bPrefab = Instantiate(bulletPrefab, transform.position, Quaternion.identity) as Rigidbody;
-            bPrefab.rigidbody.AddForce(-Vector3.right * 500);
-            coolDown = Time.time + attackRate;
-        }
-       
-    }
+   
 }
