@@ -26,7 +26,7 @@ public class Spider : MonoBehaviour
         //rotates towards player
         transform.LookAt(player.position);
         transform.Rotate(new Vector3(0, -90, 0), Space.Self);
-
+		animator.SetTrigger ("SpiderWalkRight");
         //move towards the player and attacks
         if (Vector3.Distance(transform.position, player.position) <= 0.5)
         {
