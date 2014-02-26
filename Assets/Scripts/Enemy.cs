@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public abstract class Enemy : MonoBehaviour {
@@ -6,7 +7,7 @@ public abstract class Enemy : MonoBehaviour {
 	public GameManager gameManager;
 	public Transform player;
 	
-	Animator animator;
+	public Animator Animator;
 	
 	int xp;
 	int health;
@@ -24,13 +25,57 @@ public abstract class Enemy : MonoBehaviour {
 		this.Speed = Speed;
 	}
 	
-	public int XP{ get; set;}
-	public int Health { get; set;}
-	public int Damage { get; set;}
-	public float AttackSpeed { get; set;}
+	public int XP{ 
+		get { return this.xp; } 
+		set {
+			if (value == null)
+			{
+				throw new ArgumentNullException("XP cannot be null.");
+			}
+			this.xp=value;
+		}
+	}
+	public int Health { get{return this.health;} 
+		set{
+			if (value == null)
+			{
+				throw new ArgumentNullException("Health cannot be null.");
+			}
+			this.health=value;
+		}
+	}
+	public int Damage { 
+		get{ return this.damage; } 
+		set{
+			if (value == null)
+			{
+				throw new ArgumentNullException("Damage cannot be null.");
+			}
+			this.damage=value;
+		}
+	}
+	public float AttackSpeed { 
+		get{ return this.attackSpeed;}
+		set{
+			if (value < 0)
+			{
+				throw new ArgumentNullException("Attackspeed cannot be less than null.");
+			}
+			this.attackSpeed=value;
+		}
+	}
 	public float CoolDown { get; set;}
-	public float Speed{ get; set;}
-	public Animator Animator { get; set;}
+	public float Speed{ 
+		get{return this.speed;} 
+		set{
+			if (value < null)
+			{
+				throw new ArgumentNullException("Speed cannot be less than null.");
+			}
+			this.speed = value;
+		}
+	}
+	//public Animator Animator { get; set;}
 
 	void Start()
 	{
@@ -39,7 +84,7 @@ public abstract class Enemy : MonoBehaviour {
 	}
 
 	//Enemy taking dmg
-	void EnemyDamaged(int damage)
+	public void EnemyDamaged(int damage)
 	{
 		if (Health > 0)
 		{

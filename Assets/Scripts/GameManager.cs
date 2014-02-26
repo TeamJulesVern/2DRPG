@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Threading;
+
 public class GameManager : MonoBehaviour {
 	
 	
@@ -9,7 +9,9 @@ public class GameManager : MonoBehaviour {
 	public GUIText statsDisplay;
 	public GUIText shop;
 	public GUIText negative;
-	
+	public GUIText messanger;
+	public GUIText HPbar;
+
 	public int curHealth = 50;
 	public int maxHealth = 50;
 	
@@ -28,18 +30,26 @@ public class GameManager : MonoBehaviour {
 	bool buyDamage = false;
 	
 	//Menu borders
-	public const float guiPlacementY1 = .25f; 
-	public const float guiPlacementY2 = .50f; 
-	public const float guiPlacementY3= .75f;
+	public float guiPlacementY1 = .38f; 
+	public float guiPlacementY2 = .50f; 
+	public float guiPlacementY3= .62f;
 		    
-	public const float guiPlacementX1 = .25f; 
-	public const float guiPlacementX2 = .25f; 
-	public const float guiPlacementX3 = .25f; 
-	
+	public float guiPlacementX1 = 25f; 
+	public float guiPlacementX2 = .5f; 
+	public float guiPlacementX3 = .5f; 
+
+	//timer
+	public float timer =2f;
+
+	int count = 0;
+
 	void Update()
 	{
-		if (curEXP >= maxEXP)
-			LevelUp ();
+		if (curEXP >= maxEXP) {
+						LevelUp ();
+			messanger.text="You have leveled up!!!";
+			timer=2f;
+		}
 		if (Input.GetKeyDown (KeyCode.C)) 
 		{
 			playerStats = !playerStats;	
@@ -50,10 +60,17 @@ public class GameManager : MonoBehaviour {
 		
 		if (playerStats) 
 		{
-			statsDisplay.text = "Level: " + level + ": XP: " + curEXP + " / " + maxEXP + ": Gold: "+ playersGold;
+			statsDisplay.text = "Level: " + level + ": XP: " + curEXP + " / " + maxEXP + ": Gold: "+ playersGold + "\n"
+				+ "       HP: " + curHealth + " Damage: " + PlayerShooting.damageValue;
 		} 
 		else
 			statsDisplay.text = "";
+		// Time CountDown
+		timer-=Time.deltaTime;
+		if(timer <= 0f){
+			messanger.text = "";
+			timer=2f;
+		}
 
 	}
 	void Shop(){
@@ -80,7 +97,8 @@ public class GameManager : MonoBehaviour {
 		
 		for (int h = 0; h < curHealth; h++) 
 		{
-			GUI.DrawTexture(new Rect(5f+h*3f,8f, 17,17),playersHealthTexture,ScaleMode.ScaleToFit,true,0);
+			GUI.DrawTexture(new Rect(23f+h*3f,8f, 17,17),playersHealthTexture,ScaleMode.ScaleToFit,true,0);
+			HPbar.text="HP:           :"+curHealth;
 		}
 		
 		if (pauseMenu) {
@@ -107,7 +125,7 @@ public class GameManager : MonoBehaviour {
 			if (GUI.Button (new Rect (Screen.width * guiPlacementX1, Screen.height * guiPlacementY1, Screen.width * .2f, Screen.height * .1f)
 			                , "Buy 1 HP for 50 gold")) {
 				if (playersGold >= 50) {
-					if (curHealth <= maxHealth - 1){ curHealth += 1; playersGold-=50;}
+					if (curHealth <= maxHealth - 1){ count++; curHealth += 1; playersGold-=50; messanger.text="+" + count + " health";}
 					else negative.text="You have max health";
 				}
 				else{ 
@@ -118,16 +136,22 @@ public class GameManager : MonoBehaviour {
 			else if (GUI.Button (new Rect (Screen.width * guiPlacementX2, Screen.height * guiPlacementY2, Screen.width * .2f, Screen.height * .1f)
 			                     , "Leave Shop")) {
 				buyHP = false;
+				count=0;
 				negative.text="";
 				Time.timeScale = 1f;
 			}
+
+				
+		   
+
 		}
 		if (buyDamage) {
 			shop.text="";
 			if (GUI.Button (new Rect (Screen.width * guiPlacementX1, Screen.height * guiPlacementY1, Screen.width * .2f, Screen.height * .1f)
 			                , "Buy 1 dmg for 100 gold")) {
 				if (playersGold >= 100) {
-					PlayerShooting.damageValue += 1; playersGold-=100;}
+					count++;
+					PlayerShooting.damageValue += 1; playersGold-=100; messanger.text = "+" + count + " damage"; }
 				
 				
 				else{ negative.text = "Unsufficient gold";}
@@ -136,6 +160,7 @@ public class GameManager : MonoBehaviour {
 			else if (GUI.Button (new Rect (Screen.width * guiPlacementX2, Screen.height * guiPlacementY2, Screen.width * .2f, Screen.height * .1f)
 			                     , "Leave Shop")) {
 				buyDamage = false;
+				count=0;
 				negative.text="";
 				Time.timeScale = 1f;
 			}
@@ -146,6 +171,8 @@ public class GameManager : MonoBehaviour {
 	
 	void getGold(){
 		playersGold += 100;
+		timer=2f;
+		messanger.text = "+" + 100 + " gold";
 	}
 	
 	void PlayerDamaged(int damage)
@@ -153,6 +180,9 @@ public class GameManager : MonoBehaviour {
 		if (curHealth > 0)
 		{
 			curHealth -= damage;
+			timer=0.5f;
+			messanger.text = "-" + damage + " damage";
+
 		}
 		if (curHealth <= 0)
 		{
