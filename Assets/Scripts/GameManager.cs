@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Threading;
 public class GameManager : MonoBehaviour {
 	
 	
@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour {
 				Time.timeScale = 1f;
 			}
 		}
+		if(!pauseMenu) shop.text="";
 		if (buyHP) {
 			shop.text="";
 			if (GUI.Button (new Rect (Screen.width * guiPlacementX1, Screen.height * guiPlacementY1, Screen.width * .2f, Screen.height * .1f)
@@ -109,15 +110,18 @@ public class GameManager : MonoBehaviour {
 					if (curHealth <= maxHealth - 1){ curHealth += 1; playersGold-=50;}
 					else negative.text="You have max health";
 				}
-				else negative.text = "Unsufficient gold";
+				else{ 
+					negative.text = "Unsufficient gold"; 
+				}
 				
 			}
 			else if (GUI.Button (new Rect (Screen.width * guiPlacementX2, Screen.height * guiPlacementY2, Screen.width * .2f, Screen.height * .1f)
 			                     , "Leave Shop")) {
 				buyHP = false;
+				negative.text="";
 				Time.timeScale = 1f;
 			}
-		}		
+		}
 		if (buyDamage) {
 			shop.text="";
 			if (GUI.Button (new Rect (Screen.width * guiPlacementX1, Screen.height * guiPlacementY1, Screen.width * .2f, Screen.height * .1f)
@@ -126,15 +130,17 @@ public class GameManager : MonoBehaviour {
 					PlayerShooting.damageValue += 1; playersGold-=100;}
 				
 				
-				else negative.text = "Unsufficient gold";
+				else{ negative.text = "Unsufficient gold";}
 				
 			}
 			else if (GUI.Button (new Rect (Screen.width * guiPlacementX2, Screen.height * guiPlacementY2, Screen.width * .2f, Screen.height * .1f)
 			                     , "Leave Shop")) {
 				buyDamage = false;
+				negative.text="";
 				Time.timeScale = 1f;
 			}
-		}	
+		}
+
 		
 	}
 	
