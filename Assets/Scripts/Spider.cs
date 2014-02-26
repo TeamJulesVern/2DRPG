@@ -1,60 +1,38 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Spider : MonoBehaviour
+public class Spider : Enemy
 {
-    public GameManager gameManager;
-    private Transform player;
+	public Spider(int Xp, int Health, int Damage, float AttackSpeed,float Speed) : base(Xp,Health,Damage,AttackSpeed,Speed){
+		
+	}
+	public Spider() : this(10,5,2,0.3f,3){
+		
+	}  
+	
 
-    Animator animator;
+	// Update is called once per frame
+	void Update()
+	{
+		//rotates towards player
+		transform.LookAt(player.position);
+		transform.Rotate(new Vector3(0, -90, 0), Space.Self);
+		Animator.SetTrigger ("SpiderWalkRight");
+		//move towards the player and attacks
+		if (Vector3.Distance(transform.position, player.position) <= 0.5)
+		{
+			if (Time.time >= CoolDown)
+			{
+				gameManager.SendMessage("PlayerDamaged", Damage, SendMessageOptions.DontRequireReceiver);
+				CoolDown = Time.time + AttackSpeed;
+			}
+		}
+		else if (Vector3.Distance(transform.position, player.position) <= 4)
+		{           
+			transform.Translate(new Vector3(Speed * Time.deltaTime, 0, 0));                                 
+		}
+		
+	}
+	
 
-    int spiderXp = 10;
-    int spiderHealth = 5;
-    int spiderDmg = 2;
-    float spiderAttackSpeed = 0.3f;
-    float coolDown;
-    float spiderSpeed = 3;
-
-    void Start()
-    {
-        animator = GetComponent<Animator>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        //rotates towards player
-        transform.LookAt(player.position);
-        transform.Rotate(new Vector3(0, -90, 0), Space.Self);
-		animator.SetTrigger ("SpiderWalkRight");
-        //move towards the player and attacks
-        if (Vector3.Distance(transform.position, player.position) <= 0.5)
-        {
-            if (Time.time >= coolDown)
-            {
-                gameManager.SendMessage("PlayerDamaged", spiderDmg, SendMessageOptions.DontRequireReceiver);
-                coolDown = Time.time + spiderAttackSpeed;
-            }
-        }
-        else if (Vector3.Distance(transform.position, player.position) <= 4)
-        {           
-           transform.Translate(new Vector3(spiderSpeed * Time.deltaTime, 0, 0));                                 
-        }
-
-    }
-
-    //Enemy taking dmg
-    void EnemyDamaged(int damage)
-    {
-        if (spiderHealth > 0)
-        {
-            spiderHealth -= damage;
-        }
-        if (spiderHealth <= 0)
-        {
-            spiderHealth = 0;
-            Destroy(gameObject);
-            gameManager.curEXP += spiderXp;
-        }
-    }
 }

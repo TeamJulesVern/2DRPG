@@ -1,25 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Boss : MonoBehaviour
+public class Boss : Enemy
 {
-	public GameManager gameManager;
-	private Transform player;
-	
-	Animator animator;
-	
-	int spiderXp = 10;
-	int spiderHealth = 5;
-	int spiderDmg = 2;
-	float spiderAttackSpeed = 0.3f;
-	float coolDown;
-	float spiderSpeed = 3;
-	
-	void Start()
-	{
-		animator = GetComponent<Animator>();
-		player = GameObject.FindGameObjectWithTag("Player").transform;
+	public Boss(int Xp, int Health, int Damage, float AttackSpeed,float Speed) : base(Xp,Health,Damage,AttackSpeed,Speed){
+		
 	}
+	public Boss() : this(10,5,2,0.3f,3){
+		
+	}  
+	
+
+	
+
 	// Update is called once per frame
 	void Update()
 	{
@@ -30,34 +23,20 @@ public class Boss : MonoBehaviour
 		//move towards the player and attacks
 		if (Vector3.Distance(transform.position, player.position) <= 0.5)
 		{
-			animator.SetTrigger ("BossAttack");
-			if (Time.time >= coolDown)
+			Animator.SetTrigger ("BossAttack");
+			if (Time.time >= CoolDown)
 			{
 
-				gameManager.SendMessage("PlayerDamaged", spiderDmg, SendMessageOptions.DontRequireReceiver);
-				coolDown = Time.time + spiderAttackSpeed;
+				gameManager.SendMessage("PlayerDamaged", Damage, SendMessageOptions.DontRequireReceiver);
+				CoolDown = Time.time + AttackSpeed;
 			}
 		}
 		else if (Vector3.Distance(transform.position, player.position) <= 4)
 		{           
-			transform.Translate(new Vector3(spiderSpeed * Time.deltaTime, 0, 0));
-			animator.SetTrigger ("BossWalk");
+			transform.Translate(new Vector3(Speed * Time.deltaTime, 0, 0));
+			Animator.SetTrigger ("BossWalk");
 		}
 		
 	}
-	
-	//Enemy taking dmg
-	void EnemyDamaged(int damage)
-	{
-		if (spiderHealth > 0)
-		{
-			spiderHealth -= damage;
-		}
-		if (spiderHealth <= 0)
-		{
-			spiderHealth = 0;
-			Destroy(gameObject);
-			gameManager.curEXP += spiderXp;
-		}
-	}
+
 }

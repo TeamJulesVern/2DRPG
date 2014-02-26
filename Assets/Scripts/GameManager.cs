@@ -9,22 +9,22 @@ public class GameManager : MonoBehaviour {
 	public GUIText statsDisplay;
 	public int curHealth = 50;
 	public int maxHealth = 50;
-    public int curEXP = 0;
+	public int curEXP = 0;
 	
 	bool playerStats;
 	
 	
 	int maxEXP = 50;
 	int level =1;
-
 	
+	int playersGold = 0;
 	
 	void Update()
-    {
+	{
 		if (curEXP >= maxEXP)
 			LevelUp ();
 		if (Input.GetKeyDown (KeyCode.C)) 
-        {
+		{
 			playerStats = !playerStats;	
 		}
 		
@@ -32,15 +32,15 @@ public class GameManager : MonoBehaviour {
 			curEXP += 10;
 		
 		if (playerStats) 
-        {
-			statsDisplay.text = "Level: " + level + ": XP: " + curEXP + " / " + maxEXP;
+		{
+			statsDisplay.text = "Level: " + level + ": XP: " + curEXP + " / " + maxEXP + ": Gold: "+ playersGold;
 		} 
 		else
 			statsDisplay.text = "";
 	}
 	
 	void LevelUp()
-    {
+	{
 		curEXP = 0;
 		maxEXP = maxEXP + 50;
 		level ++;
@@ -54,27 +54,33 @@ public class GameManager : MonoBehaviour {
 	{
 		
 		for (int h = 0; h < curHealth; h++) 
-        {
+		{
 			GUI.DrawTexture(new Rect(5f+h*3f,8f, 17,17),playersHealthTexture,ScaleMode.ScaleToFit,true,0);
 		}
 	}
-
-    void PlayerDamaged(int damage)
-    {
-        if (curHealth > 0)
-        {
-            curHealth -= damage;
-        }
-        if (curHealth <= 0)
-        {
-            curHealth = 0;
-            RestartScene();
-        }
-    }
+	
+	void getGold(){
+		playersGold += 100;
+	}
+	
+	void PlayerDamaged(int damage)
+	{
+		if (curHealth > 0)
+		{
+			curHealth -= damage;
+		}
+		if (curHealth <= 0)
+		{
+			curHealth = 0;
+			RestartScene();
+		}
+	}
 	
 	void RestartScene()
-    {
+	{
 		Application.LoadLevel (Application.loadedLevel);
 	}
+	
+	
 }
 
