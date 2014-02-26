@@ -3,10 +3,16 @@ using System.Collections;
 
 public class Spider : Enemy
 {
+	private const int Xp = 5;
+	private const int Health = 2;
+	private const int Damage = 1;
+	private const float AttackSpeed = 0.6f;
+	private const float Speed = 2;
+
 	public Spider(int Xp, int Health, int Damage, float AttackSpeed,float Speed) : base(Xp,Health,Damage,AttackSpeed,Speed){
 		
 	}
-	public Spider() : this(10,5,2,0.3f,3){
+	public Spider() : this(Xp,Health,Damage,AttackSpeed,Speed){
 		
 	}  
 	

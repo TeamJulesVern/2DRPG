@@ -3,12 +3,16 @@ using System.Collections;
 
 public class Bat : Enemy 
 {
-	
+	private const int Xp = 5;
+	private const int Health = 2;
+	private const int Damage = 1;
+	private const float AttackSpeed = 0.6f;
+	private const float Speed = 2;
 	
 	public Bat(int Xp, int Health, int Damage, float AttackSpeed,float Speed) : base(Xp,Health,Damage,AttackSpeed,Speed){
 		
 	}
-	public Bat() : this(5,2,1,0.6f,2){
+	public Bat() : this(Xp,Health,Damage,AttackSpeed,Speed){
 		
 	}  
 	
