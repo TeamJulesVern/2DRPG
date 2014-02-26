@@ -3,22 +3,22 @@ using System.Collections;
 
 public class Boss : Enemy
 {
-	private const int Xp = 5;
-	private const int Health = 2;
-	private const int Damage = 1;
+	private const int Xp = 50;
+	private const int Health = 40;
+	private const int Damage = 5;
 	private const float AttackSpeed = 0.6f;
 	private const float Speed = 2;
 
-	public Boss(int Xp, int Health, int Damage, float AttackSpeed,float Speed) : base(Xp,Health,Damage,AttackSpeed,Speed){
-		
+	public Boss(int Xp, int Health, int Damage, float AttackSpeed,float Speed)
+		: base(Xp,Health,Damage,AttackSpeed,Speed)
+	{
 	}
-	public Boss() : this(Xp,Health,Damage,AttackSpeed,Speed){
-		
+
+	public Boss() 
+		: this(Xp,Health,Damage,AttackSpeed,Speed)
+	{
 	}  
-	
-
-	
-
+		
 	// Update is called once per frame
 	void Update()
 	{
@@ -32,7 +32,6 @@ public class Boss : Enemy
 			Animator.SetTrigger ("BossAttack");
 			if (Time.time >= CoolDown)
 			{
-
 				gameManager.SendMessage("PlayerDamaged", Damage, SendMessageOptions.DontRequireReceiver);
 				CoolDown = Time.time + AttackSpeed;
 			}
@@ -42,7 +41,5 @@ public class Boss : Enemy
 			transform.Translate(new Vector3(Speed * Time.deltaTime, 0, 0));
 			Animator.SetTrigger ("BossWalk");
 		}
-		
 	}
-
 }

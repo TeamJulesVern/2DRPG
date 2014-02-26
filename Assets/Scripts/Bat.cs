@@ -9,15 +9,14 @@ public class Bat : Enemy
 	private const float AttackSpeed = 0.6f;
 	private const float Speed = 2;
 	
-	public Bat(int Xp, int Health, int Damage, float AttackSpeed,float Speed) : base(Xp,Health,Damage,AttackSpeed,Speed){
-		
+	public Bat(int Xp, int Health, int Damage, float AttackSpeed,float Speed) 
+		: base(Xp,Health,Damage,AttackSpeed,Speed)
+	{	
 	}
-	public Bat() : this(Xp,Health,Damage,AttackSpeed,Speed){
-		
+	public Bat() : this(Xp,Health,Damage,AttackSpeed,Speed)
+	{	
 	}  
-	
-
-	
+		
 	// Update is called once per frame
 	void Update () 
 	{
@@ -33,13 +32,10 @@ public class Bat : Enemy
 				gameManager.SendMessage("PlayerDamaged", Damage, SendMessageOptions.DontRequireReceiver);
 				CoolDown = Time.time + AttackSpeed;
 			}
-			
 		}
 		else if (Vector3.Distance(transform.position,player.position)<=3)
 		{
 			transform.Translate(new Vector3(Speed*Time.deltaTime,0,0));
 		}
-		
 	}
-
 }
