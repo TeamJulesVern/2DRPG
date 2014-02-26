@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Spider : MonoBehaviour
+public class Bat : MonoBehaviour 
 {
     public GameManager gameManager;
 
@@ -13,17 +13,17 @@ public class Spider : MonoBehaviour
 
     Animator animator;
 
-    int spiderXP = 5;
-    int spiderHP = 10;
-    int spiderDmg = 2;
+    int batXp = 5;
+    int batHealth = 5;
+    int batDamage = 1;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+	void Update () 
     {
         distanceFromPlayer = Vector3.Distance(transform.position, player.position);
 
@@ -31,33 +31,33 @@ public class Spider : MonoBehaviour
         {
             Debug.Log("Attakking Player");
         }
-        else if(distanceFromPlayer<=5)
+        else if (distanceFromPlayer <= 5)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.position - transform.position), Time.deltaTime * 4);
             transform.Translate(0, 0, .05f);
         }
-    }
+	}
 
     void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Player")
         {
-            gameManager.SendMessage("PlayerDamaged", spiderDmg, SendMessageOptions.DontRequireReceiver);
+            gameManager.SendMessage("PlayerDamaged", batDamage, SendMessageOptions.DontRequireReceiver);
         }
     }
 
     //Enemy taking dmg
     void EnemyDamaged(int damage)
     {
-        if (spiderHP > 0)
+        if (batHealth > 0)
         {
-            spiderHP -= damage;
+            batHealth -= damage;
         }
-        if (spiderHP <= 0)
+        if (batHealth <= 0)
         {
-            spiderHP = 0;
+            batHealth = 0;
             Destroy(gameObject);
-            gameManager.curEXP += spiderXP;
+            gameManager.curEXP += batXp;
         }
     }
 }
