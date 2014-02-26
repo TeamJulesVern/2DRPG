@@ -4,18 +4,16 @@ using System.Collections;
 public class Spider : MonoBehaviour
 {
     public GameManager gameManager;
-
-    private float xMove;
-    private float yMove;
-    private RaycastHit rhit;
-    private float distanceFromPlayer;
     private Transform player;
 
     Animator animator;
 
-    int spiderXP = 5;
-    int spiderHP = 10;
+    int spiderXp = 10;
+    int spiderHealth = 5;
     int spiderDmg = 2;
+    float spiderAttackSpeed = 0.3f;
+    float coolDown;
+    float spiderSpeed = 3;
 
     void Start()
     {
@@ -25,39 +23,38 @@ public class Spider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distanceFromPlayer = Vector3.Distance(transform.position, player.position);
+        //rotates towards player
+        transform.LookAt(player.position);
+        transform.Rotate(new Vector3(0, -90, 0), Space.Self);
 
-        if (distanceFromPlayer <= 1)
+        //move towards the player and attacks
+        if (Vector3.Distance(transform.position, player.position) <= 0.5)
         {
-            Debug.Log("Attakking Player");
+            if (Time.time >= coolDown)
+            {
+                gameManager.SendMessage("PlayerDamaged", spiderDmg, SendMessageOptions.DontRequireReceiver);
+                coolDown = Time.time + spiderAttackSpeed;
+            }
         }
-        else if(distanceFromPlayer<=5)
-        {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.position - transform.position), Time.deltaTime * 4);
-            transform.Translate(0, 0, .05f);
+        else if (Vector3.Distance(transform.position, player.position) <= 4)
+        {           
+           transform.Translate(new Vector3(spiderSpeed * Time.deltaTime, 0, 0));                                 
         }
-    }
 
-    void OnTriggerEnter(Collider col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-            gameManager.SendMessage("PlayerDamaged", spiderDmg, SendMessageOptions.DontRequireReceiver);
-        }
     }
 
     //Enemy taking dmg
     void EnemyDamaged(int damage)
     {
-        if (spiderHP > 0)
+        if (spiderHealth > 0)
         {
-            spiderHP -= damage;
+            spiderHealth -= damage;
         }
-        if (spiderHP <= 0)
+        if (spiderHealth <= 0)
         {
-            spiderHP = 0;
+            spiderHealth = 0;
             Destroy(gameObject);
-            gameManager.curEXP += spiderXP;
+            gameManager.curEXP += spiderXp;
         }
     }
 }

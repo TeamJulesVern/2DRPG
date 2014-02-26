@@ -4,18 +4,16 @@ using System.Collections;
 public class Bat : MonoBehaviour 
 {
     public GameManager gameManager;
-
-    private float xMove;
-    private float yMove;
-    private RaycastHit rhit;
-    private float distanceFromPlayer;
     private Transform player;
-
+   
     Animator animator;
 
     int batXp = 5;
-    int batHealth = 5;
+    int batHealth = 2;
     int batDamage = 1;
+    float batAttackSpeed = 0.6f;
+    float coolDown;
+    float batSpeed = 2;
 
     void Start()
     {
@@ -25,26 +23,26 @@ public class Bat : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-        distanceFromPlayer = Vector3.Distance(transform.position, player.position);
+        //rotates towards player
+        transform.LookAt(player.position);
+        transform.Rotate(new Vector3(0, -90, 0), Space.Self);     
 
-        if (distanceFromPlayer <= 1)
+        //move towards the player and attacks
+        if (Vector3.Distance(transform.position,player.position)<=0.5)
         {
-            Debug.Log("Attakking Player");
+            if (Time.time>=coolDown)
+            {
+                gameManager.SendMessage("PlayerDamaged", batDamage, SendMessageOptions.DontRequireReceiver);
+                coolDown = Time.time + batAttackSpeed;
+            }
+           
         }
-        else if (distanceFromPlayer <= 5)
+        else if (Vector3.Distance(transform.position,player.position)<=3)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.position - transform.position), Time.deltaTime * 4);
-            transform.Translate(0, 0, .05f);
+            transform.Translate(new Vector3(batSpeed*Time.deltaTime,0,0));
         }
+       
 	}
-
-    void OnTriggerEnter(Collider col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-            gameManager.SendMessage("PlayerDamaged", batDamage, SendMessageOptions.DontRequireReceiver);
-        }
-    }
 
     //Enemy taking dmg
     void EnemyDamaged(int damage)

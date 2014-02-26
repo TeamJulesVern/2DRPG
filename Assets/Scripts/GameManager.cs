@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour {
 	
 	public Texture playersHealthTexture;
 	public GUIText statsDisplay;
-	public int curHealth = 14;
-	public int maxHealth = 14;
+	public int curHealth = 50;
+	public int maxHealth = 50;
     public int curEXP = 0;
 	
 	bool playerStats;
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour {
 		
 		if (playerStats) 
         {
-			statsDisplay.text = "Level " + level + ": XP" + curEXP + " / " + maxEXP;
+			statsDisplay.text = "Level: " + level + ": XP: " + curEXP + " / " + maxEXP;
 		} 
 		else
 			statsDisplay.text = "";
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour {
 	void OnGUI()
 	{
 		
-		for (int h = 0; h < maxHealth; h++) 
+		for (int h = 0; h < curHealth; h++) 
         {
 			GUI.DrawTexture(new Rect(5f+h*3f,8f, 17,17),playersHealthTexture,ScaleMode.ScaleToFit,true,0);
 		}
