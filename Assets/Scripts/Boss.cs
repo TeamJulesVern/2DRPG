@@ -4,10 +4,10 @@ using System.Collections;
 public class Boss : Enemy
 {
 	private const int Xp = 50;
-	private const int Health = 40;
+	private const int Health = 120;
 	private const int Damage = 5;
 	private const float AttackSpeed = 0.6f;
-	private const float Speed = 2;
+	private const float Speed = 3;
 
 	public Boss(int Xp, int Health, int Damage, float AttackSpeed,float Speed)
 		: base(Xp,Health,Damage,AttackSpeed,Speed)

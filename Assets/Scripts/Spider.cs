@@ -4,7 +4,7 @@ using System.Collections;
 public class Spider : Enemy
 {
 	private const int Xp = 10;
-	private const int Health = 4;
+	private const int Health = 15;
 	private const int Damage = 2;
 	private const float AttackSpeed = 0.3f;
 	private const float Speed = 3;

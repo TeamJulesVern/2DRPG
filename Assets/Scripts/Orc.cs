@@ -4,7 +4,7 @@ using System.Collections;
 public class Orc : Enemy 
 {
 	private const int Xp = 5;
-	private const int Health = 2;
+	private const int Health = 60;
 	private const int Damage = 1;
 	private const float AttackSpeed = 0.6f;
 	private const float Speed = 2;

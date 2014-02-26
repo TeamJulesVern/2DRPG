@@ -28,13 +28,13 @@ public class GameManager : MonoBehaviour {
 	bool buyDamage = false;
 	
 	//Menu borders
-	public float guiPlacementY1 = .25f; 
-	public float guiPlacementY2 = .50f; 
-	public float guiPlacementY3= .75f;
-	
-	public float guiPlacementX1 = .25f; 
-	public float guiPlacementX2 = .25f; 
-	public float guiPlacementX3 = .25f; 
+	public const float guiPlacementY1 = .25f; 
+	public const float guiPlacementY2 = .50f; 
+	public const float guiPlacementY3= .75f;
+		    
+	public const float guiPlacementX1 = .25f; 
+	public const float guiPlacementX2 = .25f; 
+	public const float guiPlacementX3 = .25f; 
 	
 	void Update()
 	{
