@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerShooting : MonoBehaviour
 {
-    int damageValue = 1;
+    public static int damageValue = 1;
 
     void OnTriggerEnter(Collider other)
     {
