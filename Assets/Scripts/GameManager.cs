@@ -58,14 +58,10 @@ public class GameManager : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.E))
 			curEXP += 10;
 		
-		if (playerStats) 
-		{
-			statsDisplay.text = "Level: " + level + ": XP: " + curEXP + " / " + maxEXP + ": Gold: "+ playersGold + "\n"
-				+ "       HP: " + curHealth + " Damage: " + PlayerShooting.damageValue;
-		} 
-		else
-			statsDisplay.text = "";
-		// Time CountDown
+
+			statsDisplay.text = "Level: " + level + "\nXP: " + curEXP + " / " + maxEXP + "\nGold: "+ playersGold + "\n"
+				+ "Damage: " + PlayerShooting.damageValue;
+
 		timer-=Time.deltaTime;
 		if(timer <= 0f){
 			messanger.text = "";
@@ -87,6 +83,8 @@ public class GameManager : MonoBehaviour {
 		// Add Stats when Leveling
 		maxHealth+=4;
 		curHealth = maxHealth;
+
+		PlayerShooting.damageValue += 1;
 		
 	}
 
@@ -100,8 +98,9 @@ public class GameManager : MonoBehaviour {
 			GUI.DrawTexture(new Rect(23f+h*3f,8f, 17,17),playersHealthTexture,ScaleMode.ScaleToFit,true,0);
 			HPbar.text="HP:           :"+curHealth;
 		}
-		
+
 		if (pauseMenu) {
+			messanger.text="";
 			shop.text = "WELCOME TO THE SHOP";
 			if (GUI.Button (new Rect (Screen.width * guiPlacementX1, Screen.height * guiPlacementY1, Screen.width * .2f, Screen.height * .1f)
 			                , "Buy Health")) {
@@ -119,50 +118,57 @@ public class GameManager : MonoBehaviour {
 				Time.timeScale = 1f;
 			}
 		}
+
 		if(!pauseMenu) shop.text="";
+
 		if (buyHP) {
 			shop.text="";
 			if (GUI.Button (new Rect (Screen.width * guiPlacementX1, Screen.height * guiPlacementY1, Screen.width * .2f, Screen.height * .1f)
 			                , "Buy 1 HP for 50 gold")) {
 				if (playersGold >= 50) {
-					if (curHealth <= maxHealth - 1){ count++; curHealth += 1; playersGold-=50; messanger.text="+" + count + " health";}
+					if (curHealth <= maxHealth - 1){ count++; curHealth += 1; playersGold-=50; messanger.text="+" + count + " health";
+						 }
 					else negative.text="You have max health";
 				}
 				else{ 
 					negative.text = "Unsufficient gold"; 
+
 				}
 				
 			}
 			else if (GUI.Button (new Rect (Screen.width * guiPlacementX2, Screen.height * guiPlacementY2, Screen.width * .2f, Screen.height * .1f)
-			                     , "Leave Shop")) {
+			                     , "Back")) {
 				buyHP = false;
+				pauseMenu=true;
 				count=0;
+
 				negative.text="";
-				Time.timeScale = 1f;
 			}
 
 				
 		   
 
 		}
+
 		if (buyDamage) {
 			shop.text="";
 			if (GUI.Button (new Rect (Screen.width * guiPlacementX1, Screen.height * guiPlacementY1, Screen.width * .2f, Screen.height * .1f)
 			                , "Buy 1 dmg for 100 gold")) {
 				if (playersGold >= 100) {
 					count++;
-					PlayerShooting.damageValue += 1; playersGold-=100; messanger.text = "+" + count + " damage"; }
+					PlayerShooting.damageValue += 1; playersGold-=100; messanger.text = "+" + count + " damage"; 
+					}
 				
 				
-				else{ negative.text = "Unsufficient gold";}
+				else{ negative.text = "Unsufficient gold"; }
 				
 			}
 			else if (GUI.Button (new Rect (Screen.width * guiPlacementX2, Screen.height * guiPlacementY2, Screen.width * .2f, Screen.height * .1f)
-			                     , "Leave Shop")) {
+			                     , "Back")) {
 				buyDamage = false;
+				pauseMenu = true;
 				count=0;
 				negative.text="";
-				Time.timeScale = 1f;
 			}
 		}
 
@@ -170,9 +176,9 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	void getGold(){
-		playersGold += 100;
+		playersGold += 150;
 		timer=2f;
-		messanger.text = "+" + 100 + " gold";
+		messanger.text = "+" + 150 + " gold";
 	}
 	
 	void PlayerDamaged(int damage)
@@ -187,6 +193,8 @@ public class GameManager : MonoBehaviour {
 		if (curHealth <= 0)
 		{
 			curHealth = 0;
+
+			PlayerShooting.damageValue=1;
 			RestartScene();
 		}
 	}

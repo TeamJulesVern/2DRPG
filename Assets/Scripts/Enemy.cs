@@ -75,7 +75,6 @@ public abstract class Enemy : MonoBehaviour {
 			this.speed = value;
 		}
 	}
-	//public Animator Animator { get; set;}
 
 	void Start()
 	{
